@@ -1,0 +1,21 @@
+<div *ngIf="loading" class="loader-margin">
+  <mat-progress-spinner class="loader" color="primary" mode="indeterminate" value="value">
+  </mat-progress-spinner>
+</div>
+<mat-card *ngIf="!loading">
+  <span [ngSwitch]="qrType">
+    <div *ngSwitchCase="'text'">
+      <p>{{qrText}}</p>
+    </div>
+    <!-- <div *ngSwitchCase="'tel'">
+      <a href="{{telLink}}">{{qrText}}</a>
+      <p style="color: aqua">Phone</p>
+    </div> -->
+    <div *ngSwitchCase="'contact'">
+      <p *ngIf="qrContact.firstName !== null">First Name: {{qrContact.firstName}}</p>
+      <p *ngIf="qrContact.lastName !== null">Last Name: {{qrContact.lastName}}</p>
+      <p>Phone: <a *ngIf="qrContact.tel !== null" href="tel:{{qrContact.tel}}">{{qrContact.tel}}</a></p>
+      <p *ngIf="qrContact.email !== null">Email: <a href="mailto:{{qrContact.email}}">{{qrContact.email}}</a></p>
+    </div>
+  </span>
+</mat-card>

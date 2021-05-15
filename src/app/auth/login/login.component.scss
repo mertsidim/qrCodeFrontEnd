@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 10% 0px;
+  }
+
+  ::ng-deep .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  mat-card-title, 
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .error {
+    padding: 10px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+  mat-card.mat-card{max-width:500px;width:100%;box-shadow:none;border:1px solid #ccc;}
+  form.form{width:100%;}
+.bg{display: flex; background: #dedede;height: calc(100vh - 65px);margin: auto;}
+.bg mat-card.mat-card.ng-star-inserted{margin:auto}
+.bg mat-card-title{font-weight:bold}
+/* ::ng-deep .bg .mat-form-field-infix input{    font-size: 15px; line-height: 1.5; color: #666666; display: block; width: 100%;background: #e6e6e6;height: 50px;border-radius: 25px;padding: 0 30px;box-sizing: border-box}
+::ng-deep .bg .mat-form-field-infix input::placeholder{color: #ddd;display: block;} */

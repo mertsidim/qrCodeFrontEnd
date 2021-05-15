@@ -1,0 +1,208 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+  <span>
+    <h4 mat-dialog-title>Configure your QR Code</h4>
+    <span fxFlex></span>
+    <button mat-icon-button type="button" (click)="onSubmit()">
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">close
+      </mat-icon>
+    </button>
+  </span>
+
+  <div mat-dialog-content class="flex-box">
+
+    <!-- Basic options -->
+
+    <div class="form-element three">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="width" type="number" placeholder="QR code width" formControlName="width">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element three">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="height" type="number" placeholder="QR code height" formControlName="height">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element three">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="quietZone" type="number" placeholder="Quiet Zone size" formControlName="quietZone">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element half">
+      <input name="colorDark" type="color" style="display: none" formControlName="colorDark" #colorDark>
+      <button id="colorDark" mat-icon-button type="button" (click)="colorDark.click();">
+        <a mat-mini-fab
+          [ngStyle]="{'background-color': formGroup.value.colorDark ? formGroup.value.colorDark : '#ffffff'}">
+          <mat-icon class="mat-icon material-icons" style="color:#000000">add</mat-icon>
+        </a>
+      </button>
+      <label style="margin-left: 10px;" for="colorDark">QR Dark color</label>
+    </div>
+
+    <div class="form-element half">
+      <input name="colorLight" type="color" style="display: none" formControlName="colorLight" #colorLight>
+      <button id="colorLight" mat-icon-button type="button" (click)="colorLight.click();">
+        <a mat-mini-fab
+          [ngStyle]="{'background-color': formGroup.value.colorLight ? formGroup.value.colorLight : '#ffffff'}">
+          <mat-icon class="mat-icon material-icons" style="color:#000000">add</mat-icon>
+        </a>
+      </button>
+      <label style="margin-left: 10px;" for="colorLight">QR Light color</label>
+    </div>
+
+    <!-- Logo options -->
+
+    <div class="form-element full">
+      <h4 class="label-field">QR Code Logo</h4>
+      <input style="display: none" type="file" accept="image/*" (change)="onImagePicked($event.target)" #filePickerLogo>
+      <ng-container *ngIf="!formGroup.value.logo || formGroup.value.logo == null; else showLogo">
+        <button mat-icon-button (click)="filePickerLogo.click()" type="button" color=primary class="fileUpload">
+          <mat-icon class="mat-icon material-icons cam-upload" role="img" aria-hidden="true">add_photo_alternate
+          </mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #showLogo>
+        <div class="image-preview">
+          <div class="fileUpload">
+            <img [src]="formGroup.value.logo" style="width: 100%; height: 100%;" id="Logo" crossOrigin="Anonymous">
+            <span fxFlex></span>
+            <button (click)="deletefile(0)" type="button" title="Delete Image" mat-icon-button color="warn">
+              <mat-icon color="warn" class="mat-icon material-icons">delete_forever</mat-icon>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div><br>
+
+    <div class="form-element half">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="logoWidth" type="number" placeholder="Logo width" formControlName="logoWidth">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element half">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="logoHeight" type="number" placeholder="Logo height" formControlName="logoHeight">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element full">
+      <mat-checkbox id="logoBackgroundTransparent" name="logoBackgroundTransparent" color="primary"
+        formControlName="logoBackgroundTransparent" style="margin-right:10px">
+        <label style="margin-left: 10px;">Logo Background Transparent</label>
+      </mat-checkbox>
+    </div>
+
+    <div class="form-element full">
+      <input name="logoBackgroundColor" type="color" style="display: none" formControlName="logoBackgroundColor"
+        #logoBackgroundColor>
+      <button id="logoBackgroundColor" mat-icon-button type="button" (click)="logoBackgroundColor.click();">
+        <a mat-mini-fab
+          [ngStyle]="{'background-color': formGroup.value.logoBackgroundColor ? formGroup.value.logoBackgroundColor : '#ffffff'}">
+          <mat-icon class="mat-icon material-icons" style="color:#000000">add</mat-icon>
+        </a>
+      </button>
+      <label style="margin-left: 10px;" for="logoBackgroundColor">Logo Background Color</label>
+    </div>
+
+    <!-- Backgroud Image options -->
+
+    <div class="form-element full">
+      <h4 class="label-field">QR Code Backgroud Image</h4>
+      <input style="display: none" type="file" accept="image/*" (change)="onImagePicked($event.target, 1)"
+        #filePickerBakImg>
+      <ng-container
+        *ngIf="!formGroup.value.backgroundImage || formGroup.value.backgroundImage == null; else showBackgroundImage">
+        <button mat-icon-button (click)="filePickerBakImg.click()" type="button" color=primary class="fileUpload">
+          <mat-icon class="mat-icon material-icons cam-upload" role="img" aria-hidden="true">add_photo_alternate
+          </mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #showBackgroundImage>
+        <div class="image-preview">
+          <div class="fileUpload">
+            <img [src]="formGroup.value.backgroundImage" style="width: 100%; height: 100%;" id="backgroundImage"
+              crossOrigin="Anonymous">
+            <span fxFlex></span>
+            <button (click)="deletefile(1)" type="button" title="Delete Image" mat-icon-button color="warn">
+              <mat-icon color="warn" class="mat-icon material-icons">delete_forever</mat-icon>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div><br>
+
+    <div class="form-element full">
+      <mat-slider id="backgroundImageAlpha" class="example-margin" [min]="0" [max]="1" [thumbLabel]="true"
+        color="primary" [tickInterval]="1" [step]="0.1" formControlName="backgroundImageAlpha">
+      </mat-slider>
+      <label style="margin-left: 10px;" for="backgroundImageAlpha">Logo Background Image Alpha</label>
+    </div>
+
+    <div class="form-element full">
+      <mat-checkbox id="autoColor" name="autoColor" color="primary" formControlName="autoColor"
+        style="margin-right:10px">
+        <label style="margin-left: 10px;" for="autoColor">Automatic color adjustment</label>
+      </mat-checkbox>
+    </div>
+
+    <div class="form-element full">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="title" placeholder="Title for your QR Code" formControlName="title">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element full">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="subTitle" placeholder="Sub-Title for your QR Code" formControlName="subTitle">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element full">
+      <mat-form-field style="width: 100%;">
+        <input matInput name="titleHeight" type="number" placeholder="QR title section height"
+          formControlName="titleHeight">
+      </mat-form-field>
+    </div>
+
+    <div class="form-element half">
+      <input name="titleColor" type="color" style="display: none" formControlName="titleColor" #titleColor>
+      <button id="titleColor" mat-icon-button type="button" (click)="titleColor.click();">
+        <a mat-mini-fab
+          [ngStyle]="{'background-color': formGroup.value.titleColor ? formGroup.value.titleColor : '#ffffff'}">
+          <mat-icon class="mat-icon material-icons" style="color:#000000">add</mat-icon>
+        </a>
+      </button>
+      <label style="margin-left: 10px;" for="titleColor">Title Color</label>
+    </div>
+
+    <div class="form-element half">
+      <input name="subTitleColor" type="color" style="display: none" formControlName="subTitleColor" #subTitleColor>
+      <button id="subTitleColor" mat-icon-button type="button" (click)="subTitleColor.click();">
+        <a mat-mini-fab
+          [ngStyle]="{'background-color': formGroup.value.subTitleColor ? formGroup.value.subTitleColor : '#ffffff'}">
+          <mat-icon class="mat-icon material-icons" style="color:#000000">add</mat-icon>
+        </a>
+      </button>
+      <label style="margin-left: 10px;" for="subTitleColor">Sub-Title Color</label>
+    </div>
+
+    <div class="form-element full">
+      <input name="titleBackgroundColor" type="color" style="display: none" formControlName="titleBackgroundColor"
+        #titleBackgroundColor>
+      <button id="titleBackgroundColor" mat-icon-button type="button" (click)="titleBackgroundColor.click();">
+        <a mat-mini-fab
+          [ngStyle]="{'background-color': formGroup.value.titleBackgroundColor ? formGroup.value.titleBackgroundColor : '#ffffff'}">
+          <mat-icon class="mat-icon material-icons" style="color:#000000">add</mat-icon>
+        </a>
+      </button>
+      <label style="margin-left: 10px;" for="titleBackgroundColor">Title section background Color</label>
+    </div>
+  </div>
+  <div mat-dialog-actions class="full">
+    <span fxFlex></span>
+    <button mat-raised-button [disabled]="!formGroup.valid" type="submit" color="primary">Apply</button>
+  </div>
+</form>

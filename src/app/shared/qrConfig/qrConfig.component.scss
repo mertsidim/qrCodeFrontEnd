@@ -1,0 +1,33 @@
+.form-element {
+    margin: 5px 0px 10px;
+}
+
+.label-field {
+    color: #757575;
+    font-size: 18px;
+}
+
+.fileUpload {
+    border: 2px dashed;
+    width: 100px;
+    height: 100px;
+    color: #1e88e5;
+    padding: 0;
+}
+
+.cam-upload {
+    font-size: 80px;
+    height: auto;
+    width: auto;
+}
+
+.image-preview {
+    margin-top: 10px;
+}
+.flex-box{display:flex;flex-wrap:wrap}
+.full{width:100%}
+.half{width:50%}
+.three{width:33.33%}
+.form-element { padding: 0 5px; box-sizing: border-box;}
+.form-element h4{font-weight:400;color:rgba(0,0,0,.54);font-size:16px}
+.form-element label{color:rgba(0,0,0,.54)}

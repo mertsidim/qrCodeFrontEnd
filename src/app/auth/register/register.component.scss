@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 2% 0px;
+  }
+
+::ng-deep .mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.form-element {
+  padding: 5px 0px 10px 2px;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+mat-card.mat-card{max-width:500px;width:100%;box-shadow:none;border:1px solid #ccc;}
+  form.form{width:100%;}
+
+.bg{display: flex; background: #dedede;height: calc(100vh - 65px);margin: auto;}
+.bg mat-card.mat-card.ng-star-inserted{margin:auto}
+.bg mat-card-title{font-weight:bold}

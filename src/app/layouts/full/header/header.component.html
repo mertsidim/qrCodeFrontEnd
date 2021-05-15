@@ -1,0 +1,21 @@
+<div style="display: flex" *ngIf="!showProfile && router.url !=='/dashboard' && !router.url.includes('auth')">
+    <button routerLink="/auth/login" mat-raised-button color="primary">Login</button>
+</div>
+<div style="display: flex" *ngIf="showProfile">
+    <button mat-mini-fab type="button" [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5" color="primary">
+        <mat-icon>person</mat-icon>
+    </button>
+</div>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <!-- <button mat-menu-item>
+        <mat-icon>settings</mat-icon> Settings </button>
+    <button mat-menu-item>
+        <mat-icon>account_box</mat-icon> Profile </button> -->
+    <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon> Sign Out
+    </button>
+    <!-- <button mat-menu-item (click)="editProfile()">
+        <mat-icon>account_circle</mat-icon> Edit Profile
+    </button> -->
+
+</mat-menu>

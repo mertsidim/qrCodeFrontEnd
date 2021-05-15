@@ -1,0 +1,17 @@
+.page-content {
+    height: 92%;
+}
+
+.example-sidenav-container {
+    background: #f8fcff;
+}
+
+.dark-sidebar {
+    z-index: -1;
+}
+
+@media(max-width:767px) {
+    .dark-sidebar {
+        z-index: 3;
+    }
+}

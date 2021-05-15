@@ -1,0 +1,32 @@
+<div class="main-container">
+    <mat-toolbar style="background-color: #2a3051;" class="topbar">
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/">
+                <span fxShow="false" fxShow.gt-xs>
+                    <img id="appLogo" src="{{config.logo}}" width="159" class="light-logo" alt="homepage">
+                </span> </a>
+        </div>
+        <button mat-icon-button id="menu_close" style="color: white;" (click)="snav.toggle()" value="sidebarclosed">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span fxFlex></span>
+        <h1 style="color: #FFFFFF;">QR Code Generator</h1>
+        <span fxFlex></span>
+        <app-header></app-header>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
+            fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+        <mat-sidenav-content class="page-wrapper">
+            <div class="page-content">
+                <router-outlet>
+                    <app-spinner></app-spinner>
+                </router-outlet>
+                <ng-adsense></ng-adsense>
+            </div>
+            <app-footer></app-footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

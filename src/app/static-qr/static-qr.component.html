@@ -1,0 +1,114 @@
+<mat-card style="box-shadow:none;">
+    <mat-card-title>QR Code</mat-card-title>
+    <mat-card-subtitle>get your QR code</mat-card-subtitle>
+    <mat-card-content>
+        <div gdAreas="side content" gdGap="16px" gdRows="auto auto" gdAreas.lt-md="side | content"
+            gdRows.lt-md="auto auto">
+            <div gdArea="side">
+                <mat-tab-group [selectedIndex]="tabIndex" (selectedIndexChange)="tabIndex = $event" mat-stretch-tabs>
+                    <mat-tab label="Text">
+                        <form [formGroup]="textFormGroup" style="padding: 5px">
+                            <mat-form-field style="width: 100%;">
+                                <textarea matInput name="text" placeholder="Text" formControlName="text"
+                                    (keyup)="onLinkClick(); qrCode = textFormGroup.controls.text.value;">
+                                    </textarea>
+                            </mat-form-field>
+                        </form>
+                    </mat-tab>
+                    <mat-tab label="URL">
+                        <form [formGroup]="urlFormGroup" style="padding: 5px">
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="url" type="url" placeholder="URL" formControlName="url"
+                                    (keyup)="onLinkClick(); qrCode = urlFormGroup.controls.url.valid ? urlFormGroup.controls.url.value : null;">
+                                <mat-error
+                                    *ngIf="!urlFormGroup.controls.url.valid && urlFormGroup.controls.url.touched">
+                                    URL is invalid
+                                </mat-error>
+                            </mat-form-field>
+                        </form>
+                    </mat-tab>
+                    <mat-tab label="Email">
+                        <form [formGroup]="emailFormGroup" style="margin-top: 5px; padding: 5px;">
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="email" type="email" placeholder="Email" formControlName="email"
+                                    (keyup)="onLinkClick(); emailQR(emailFormGroup.value)">
+                                <mat-error
+                                    *ngIf="!emailFormGroup.controls.email.valid && emailFormGroup.controls.email.touched">
+                                    Email is invalid
+                                </mat-error>
+                            </mat-form-field><br>
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="subject" placeholder="Subject" formControlName="subject"
+                                    (keyup)="onLinkClick(); emailQR(emailFormGroup.value)">
+                            </mat-form-field><br>
+                            <mat-form-field style="width: 100%;">
+                                <textarea matInput name="body" placeholder="Body" formControlName="body"
+                                    (keyup)="onLinkClick(); emailQR(emailFormGroup.value)">
+                                    </textarea>
+                            </mat-form-field><br>
+                        </form>
+                    </mat-tab>
+                    <mat-tab label="Phone">
+                        <form [formGroup]="telFormGroup" style="padding: 5px">
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="tel" placeholder="Phone number" formControlName="tel"
+                                    (keyup)="onLinkClick(); qrCode = telFormGroup.controls.tel.valid ? 'tel:' + telFormGroup.controls['tel'].value : null;">
+                                <mat-error
+                                    *ngIf="!telFormGroup.controls.tel.valid && telFormGroup.controls.tel.touched">
+                                    Phone number is invalid
+                                </mat-error>
+                            </mat-form-field>
+                        </form>
+                    </mat-tab>
+                    <mat-tab label="Contact">
+                        <form [formGroup]="contactFormGroup" style="padding: 5px">
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="firstName" placeholder="First Name" formControlName="firstName"
+                                    (keyup)="onLinkClick(); contactQR(contactFormGroup.value)">
+                            </mat-form-field><br>
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="lastName" placeholder="last Name" formControlName="lastName"
+                                    (keyup)="onLinkClick(); contactQR(contactFormGroup.value)">
+                            </mat-form-field><br>
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="tel" type="tel" placeholder="Phone" formControlName="tel"
+                                    (keyup)="onLinkClick(); contactQR(contactFormGroup.value)">
+                                <mat-error
+                                    *ngIf="!contactFormGroup.controls.tel.valid && contactFormGroup.controls.tel.touched">
+                                    Phone number is invalid
+                                </mat-error>
+                            </mat-form-field><br>
+                            <mat-form-field style="width: 100%;">
+                                <input matInput name="email" type="email" placeholder="Email" formControlName="email"
+                                    (keyup)="onLinkClick(); contactQR(contactFormGroup.value)">
+                                <mat-error
+                                    *ngIf="!contactFormGroup.controls.email.valid && contactFormGroup.controls.email.touched">
+                                    Email is invalid
+                                </mat-error>
+                            </mat-form-field>
+                        </form>
+                    </mat-tab>
+                </mat-tab-group>
+                <div>
+                    <button type="button" color="primary" mat-raised-button (click)="generateQrCode(false)"
+                        [disabled]="!qrCode || qrCode === ''">
+                        Generate QR Code
+                    </button>
+                </div>
+            </div>
+            <mat-card class="downloadQR" gdArea="content" style="padding-top: 0;">
+                <mat-toolbar color="primary">
+                    <button mat-icon-button [disabled]="!downloadQRFlag" style="color: white;" (click)="qrDownload()"
+                        title="Get your QR code">
+                        <mat-icon style="color: white">save_alt</mat-icon> Download
+                    </button>
+                    <span fxFlex></span>
+                    <button mat-icon-button (click)="openDialog()" title="Configure your QR code">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </mat-toolbar>
+                <div class="qr-code" #qrCodeEle></div>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</mat-card>

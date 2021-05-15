@@ -1,0 +1,23 @@
+<mat-card style="box-shadow:none;">
+    <mat-card-content>
+        <div>
+            <mat-form-field>
+                <mat-label>Choose start date</mat-label>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startPicker" [formControl]="startDate"
+                    (click)="startPicker.open()" (dateChange)="dateChanged()" readonly>
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+            <span fxFlex style="padding: 0 10px"></span>
+            <mat-form-field>
+                <mat-label>Choose end date</mat-label>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="endPicker" [formControl]="endDate"
+                    (click)="endPicker.open()" (dateChange)="dateChanged()" readonly>
+                <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div [chart]="chart"></div>
+    </mat-card-content>
+</mat-card>

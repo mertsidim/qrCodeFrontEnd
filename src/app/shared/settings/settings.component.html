@@ -1,0 +1,50 @@
+<mat-card style="box-shadow:none;">
+    <mat-card-header>
+        <mat-card-title>Settings</mat-card-title>
+        <mat-card-subtitle>Configure your app</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="form-element">
+            <p class="label-field">App logo</p>
+            <input style="display: none" type="file" accept="image/png" (change)="onImagePicked($event.target, 0)"
+                #filePickerLogo>
+            <div [hidden]="isLogo">
+                <button mat-icon-button (click)="filePickerLogo.click()" type="button" color=primary class="fileUpload">
+                    <mat-icon class="mat-icon material-icons cam-upload" role="img" aria-hidden="true">
+                        add_photo_alternate
+                    </mat-icon>
+                </button>
+            </div>
+            <div class="image-preview logo" [hidden]=!isLogo>
+                <div class="fileUpload">
+                    <img [src]="" style="width: 100%; height: 100%;" id="logo" crossOrigin="Anonymous">
+                    <button (click)="deletefile(0)" type="button" title="Delete Image" mat-icon-button color="warn"
+                        style="position: absolute;">
+                        <mat-icon color="warn" class="mat-icon material-icons">remove_circle</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-element favicon">
+                <p class="label-field">App favicon</p>
+                <input style="display: none" type="file" accept="image/png" (change)="onImagePicked($event.target, 1)"
+                    #filePickerFav>
+                <div [hidden]="isFavicon">
+                    <button mat-icon-button (click)="filePickerFav.click()" type="button" color=primary class="fileUpload">
+                        <mat-icon class="mat-icon material-icons cam-upload" role="img" aria-hidden="true">
+                            add_photo_alternate
+                        </mat-icon>
+                    </button>
+                </div>
+                <div class="image-preview favicon" [hidden]=!isFavicon>
+                    <div class="fileUpload">
+                        <img [src]="" style="width: 100%; height: 100%;" id="favicon" crossOrigin="Anonymous">
+                        <button (click)="deletefile(1)" type="button" title="Delete Image" mat-icon-button color="warn"
+                            style="position: absolute;">
+                            <mat-icon color="warn" class="mat-icon material-icons">remove_circle</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </mat-card-content>
+</mat-card>
