@@ -1,12 +1,12 @@
 <mat-card style="box-shadow:none;">
   <mat-card-title>
-    <mat-icon>pages</mat-icon> QR Code
+    <mat-icon>pages</mat-icon> Dinamik QR Kod
     <span fxFlex></span>
     <button mat-raised-button color="primary" routerLink="/dashboard">
       Back
     </button>
   </mat-card-title>
-  <mat-card-subtitle>Get your smart QR code</mat-card-subtitle>
+  <mat-card-subtitle>Dinamik QR Kodunuzu Üretin</mat-card-subtitle>
   <mat-card-content>
     <mat-progress-bar *ngIf="progressLoading" mode="indeterminate"></mat-progress-bar><br>
     <div gdAreas="side content" gdGap="16px" gdRows="auto auto" gdAreas.lt-md="side | content" gdRows.lt-md="auto auto">
@@ -14,7 +14,7 @@
         <div style="margin-top: 5px; padding: 5px;">
           <form [formGroup]="titleFormGroup" style="margin-top: 5px; padding: 5px;">
             <mat-form-field style="width: 100%;">
-              <input matInput name="title" placeholder="QR Code Title" formControlName="title"
+              <input matInput name="title" placeholder="QR Kod Başlığı" formControlName="title"
                 (focusout)="createEditDynamicQR()">
             </mat-form-field>
             <!--<span fxFlex></span>-->
@@ -29,10 +29,10 @@
           </form>
         </div>
         <mat-tab-group [selectedIndex]="tabIndex" (selectedIndexChange)="tabIndex = $event" mat-stretch-tabs>
-          <mat-tab label="Text">
+          <mat-tab label="Metin">
             <form [formGroup]="textFormGroup" style="margin-top: 5px; padding: 5px;">
               <mat-form-field style="width: 100%;">
-                <textarea matInput name="text" placeholder="Text" formControlName="text" (keyup)="onLinkClick()">
+                <textarea matInput name="text" placeholder="Metin" formControlName="text" (keyup)="onLinkClick()">
                   </textarea>
               </mat-form-field>
             </form>
@@ -42,64 +42,64 @@
               <mat-form-field style="width: 100%;">
                 <input matInput name="url" type="url" placeholder="URL" formControlName="url" (keyup)="onLinkClick()">
                 <mat-error *ngIf="!urlFormGroup.controls.url.valid && urlFormGroup.controls.url.touched">
-                  URL is Invalid
+                  Geçersiz URL
                 </mat-error>
               </mat-form-field>
             </form>
           </mat-tab>
-          <mat-tab label="Email">
+          <mat-tab label="E-posta">
             <form [formGroup]="emailFormGroup" style="margin-top: 5px; padding: 5px;">
               <mat-form-field style="width: 100%;">
-                <input matInput name="email" type="email" placeholder="Email" formControlName="email"
+                <input matInput name="email" type="email" placeholder="E-posta" formControlName="email"
                   (keyup)="onLinkClick()">
                 <mat-error *ngIf="!emailFormGroup.controls.email.valid && emailFormGroup.controls.email.touched">
-                  Email is invalid
+                  Geçersiz E-posta
                 </mat-error>
               </mat-form-field><br>
               <mat-form-field style="width: 100%;">
-                <input matInput name="subject" placeholder="Subject" formControlName="subject" (keyup)="onLinkClick();">
+                <input matInput name="subject" placeholder="Konu" formControlName="subject" (keyup)="onLinkClick();">
               </mat-form-field><br>
               <mat-form-field style="width: 100%;">
-                <textarea matInput name="body" placeholder="Body" formControlName="body" (keyup)="onLinkClick();">
+                <textarea matInput name="body" placeholder="İçerik" formControlName="body" (keyup)="onLinkClick();">
                   </textarea>
               </mat-form-field><br>
             </form>
           </mat-tab>
-          <mat-tab label="Phone">
+          <mat-tab label="Telefon">
             <form [formGroup]="telFormGroup" style="margin-top: 5px; padding: 5px;">
               <mat-form-field style="width: 100%;">
-                <input matInput name="tel" type="tel" placeholder="Phone" formControlName="tel"
+                <input matInput name="tel" type="tel" placeholder="Telefon" formControlName="tel"
                   (keyup)="onLinkClick()">
                 <mat-error *ngIf="!telFormGroup.controls.tel.valid && telFormGroup.controls.tel.touched">
-                  Phone number is invalid
+                  Geçersiz Telefon Numarası
                 </mat-error>
               </mat-form-field>
             </form>
           </mat-tab>
-          <mat-tab label="Contact">
+          <mat-tab label="İletişim">
             <form [formGroup]="contactFormGroup" style="margin-top: 5px; padding: 5px 0;">
               <mat-form-field style="width: 100%; margin-top: 5px; padding: 5px 0;">
-                <input matInput name="firstName" placeholder="First Name" formControlName="firstName"
+                <input matInput name="firstName" placeholder="Ad" formControlName="firstName"
                   (keyup)="onLinkClick()">
               </mat-form-field>
               <br>
               <mat-form-field style="width: 100%; margin-top: 5px; padding: 5px 0;">
-                <input matInput name="lastName" placeholder="last Name" formControlName="lastName"
+                <input matInput name="lastName" placeholder="Soyad" formControlName="lastName"
                   (keyup)="onLinkClick()">
               </mat-form-field>
               <br>
               <mat-form-field style="width: 100%; margin-top: 5px; padding: 5px 0;">
-                <input matInput name="tel" type="tel" placeholder="Phone" formControlName="tel" (keyup)="onLinkClick()">
+                <input matInput name="tel" type="tel" placeholder="Telefon" formControlName="tel" (keyup)="onLinkClick()">
                 <mat-error *ngIf="!contactFormGroup.controls.tel.valid && contactFormGroup.controls.tel.touched">
-                  Phone number is invalid
+                  Geçersiz Telefon Numarası
                 </mat-error>
               </mat-form-field>
               <br>
               <mat-form-field style="width: 100%; margin-top: 5px; padding: 5px 0;">
-                <input matInput name="email" type="email" placeholder="Email" formControlName="email"
+                <input matInput name="email" type="email" placeholder="E-posta" formControlName="email"
                   (keyup)="onLinkClick()">
                 <mat-error *ngIf="!contactFormGroup.controls.email.valid && contactFormGroup.controls.email.touched">
-                  Email is invalid
+                  Geçersiz E-posta
                 </mat-error>
               </mat-form-field>
             </form>
@@ -108,20 +108,20 @@
         <div>
           <button type="button" color="primary" mat-raised-button (click)="createEditDynamicQR()"
             [disabled]="!qrCode || qrCode === ''">
-            Generate QR Code
+            QR Kodu Oluştur
           </button>
         </div>
       </div>
       <mat-card gdArea="content" style="padding-top: 0;">
         <mat-toolbar color="primary">
           <button mat-icon-button [disabled]="!qrCode || qrCode === ''" style="color: white;" (click)="qrDownload()"
-            title="Get your QR code">
-            <mat-icon style="color: white">save_alt</mat-icon> Download
+            title="QR Kodunuzu Alın">
+            <mat-icon style="color: white">save_alt</mat-icon> İndir
           </button>
           <span fxFlex></span>
-          <button mat-icon-button (click)="openDialog()" title="Configure your QR code">
+          <!-- <button mat-icon-button (click)="openDialog()" title="QR Kodunuzu Özelleştirin">
             <mat-icon>more_vert</mat-icon>
-          </button>
+          </button> -->
         </mat-toolbar>
         <div class="qr-code" #qrCodeEle></div>
       </mat-card>

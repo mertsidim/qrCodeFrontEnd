@@ -1,18 +1,16 @@
 import * as moment from 'moment-timezone';
 import { AES } from 'crypto-ts';
 
-export const appName = 'Dynamic QR Code Generator | Mert Şıdım';
-export const companyURL = 'https://www.google.com/';
+export const appName = 'Dinamik QR Kod Üreteci | Mert Şıdım';
+export const companyURL = 'https://www.mertsidim.com.tr/';
 export const companyName = 'Mert ŞIDIM';
-export const logo = 'assets/elsner-logo.png';
+export const logo = 'assets/qrkodureteci-logo.png';
 export const favicon = 'assets/images/favicon.png';
 
 export const baseUrl = 'http://localhost:4200';
-export const apiBasePath = 'http://qrcodegen2.eu-central-1.elasticbeanstalk.com/';
+export const apiBasePath = 'http://localhost:8787/';
 
 
-/* export const apiBasePath = 'https://qrcodegen1.azurewebsites.net/'; */
-/* export const apiBasePath = 'http://localhost:8787/'; */
 
 // **** Staging URL ****
 
@@ -21,8 +19,9 @@ export const apiBasePath = 'http://qrcodegen2.eu-central-1.elasticbeanstalk.com/
 
 // **** Live URL ****
 
-// export const baseUrl = '';
-// export const apiBasePath = '';
+/* export const baseUrl = 'https://qrcodefrontend.azurewebsites.net/'; */
+
+/* export const apiBasePath = 'https://qrcodegenapi.azurewebsites.net/'; */
 
 export const imagePath = apiBasePath + 'settings/';
 export const pagination = [5, 10, 25, 100];

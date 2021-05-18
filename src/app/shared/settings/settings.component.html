@@ -1,11 +1,11 @@
 <mat-card style="box-shadow:none;">
     <mat-card-header>
-        <mat-card-title>Settings</mat-card-title>
-        <mat-card-subtitle>Configure your app</mat-card-subtitle>
+        <mat-card-title>Ayarlar</mat-card-title>
+        <mat-card-subtitle>Uygulama ayarları</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <div class="form-element">
-            <p class="label-field">App logo</p>
+            <p class="label-field">Uygulama Logosu</p>
             <input style="display: none" type="file" accept="image/png" (change)="onImagePicked($event.target, 0)"
                 #filePickerLogo>
             <div [hidden]="isLogo">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="form-element favicon">
-                <p class="label-field">App favicon</p>
+                <p class="label-field">Favicon</p>
                 <input style="display: none" type="file" accept="image/png" (change)="onImagePicked($event.target, 1)"
                     #filePickerFav>
                 <div [hidden]="isFavicon">

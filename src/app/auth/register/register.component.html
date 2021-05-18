@@ -6,19 +6,19 @@
     </div>
     <span fxFlex></span>
     <button routerLink="/" type="button" mat-raised-button color="primary">
-        <mat-icon>home</mat-icon> Home
+        <mat-icon>home</mat-icon> Ana Sayfa
     </button>
 </mat-toolbar>
 <div class="container bg" *ngIf="formFlag">
     <mat-progress-spinner style="margin: 0 auto;top: 50%;" *ngIf="loading" color="primary" mode="indeterminate">
     </mat-progress-spinner>
     <mat-card *ngIf="!loading">
-        <mat-card-title>Register</mat-card-title>
+        <mat-card-title>Kayıt</mat-card-title>
         <mat-card-content>
             <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
                 <div class="form-element">
                     <mat-form-field>
-                        <input matInput placeholder="First Name" formControlName="firstName">
+                        <input matInput placeholder="Adınız" formControlName="firstName">
                         <mat-error
                             *ngIf="!formGroup.controls['firstName'].valid && formGroup.controls['firstName'].touched">
                             {{ required }}
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-element">
                     <mat-form-field>
-                        <input matInput placeholder="Last Name" formControlName="lastName">
+                        <input matInput placeholder="Soyadınız" formControlName="lastName">
                         <mat-error
                             *ngIf="!formGroup.controls['lastName'].valid && formGroup.controls['lastName'].touched">
                             {{ required }}
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-element">
                     <mat-form-field>
-                        <input matInput type="email" placeholder="Email Address" formControlName="email">
+                        <input matInput type="email" placeholder="E-posta adresi" formControlName="email">
                         <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
                             {{ getErrorEmail() }}
                         </mat-error>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-element">
                     <mat-form-field>
-                        <input matInput type="text" placeholder="User Name" formControlName="userName">
+                        <input matInput type="text" placeholder="Kullanıcı Adınız" formControlName="userName">
                         <mat-error
                             *ngIf="!formGroup.controls['userName'].valid && formGroup.controls['userName'].touched">
                             {{ required }}
@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-element">
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Password" formControlName="password">
+                        <input matInput type="password" placeholder="Şifreniz" formControlName="password">
                         <mat-error
                             *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
                             {{ getErrorPassword() }}
@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-element">
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Password" formControlName="confirmPassword">
+                        <input matInput type="password" placeholder="Şifre Tekrar" formControlName="confirmPassword">
                         <mat-error
                             *ngIf="!formGroup.controls['confirmPassword'].valid && formGroup.controls['confirmPassword'].touched">
                             {{ getErrorConfirmPassword() }}
@@ -72,12 +72,10 @@
                 <mat-card-actions>
                     <div gdAreas="side content" gdRows="auto">
                         <div gdArea="side" fxLayoutAlign="start">
-                            <button type="button" mat-raised-button routerLink="/auth/login" color="primary">Already
-                                have an account?</button>
+                            <button type="button" mat-raised-button routerLink="/auth/login" color="primary">Zaten bir hesabınız var mı?</button>
                         </div>
                         <div gdArea="content" fxLayoutAlign="end">
-                            <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Sign
-                                up</button>
+                            <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Kayıt Ol</button>
                         </div>
                     </div>
                 </mat-card-actions>

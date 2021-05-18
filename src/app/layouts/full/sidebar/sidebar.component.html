@@ -1,13 +1,13 @@
 <mat-nav-list appAccordion>
     <mat-list-item appAccordionLink routerLink="" routerLinkActive="selected" group="staticQR">
         <a appAccordionToggle routerLink="">
-            <mat-icon>select_all</mat-icon>Generate QR
+            <mat-icon>select_all</mat-icon>Statik QR Kod Oluştur
         </a>
     </mat-list-item>
     <mat-list-item appAccordionLink *ngIf="service.getLocalStorage('authToken')" routerLink="/dashboard"
         routerLinkActive="selected" group="dashboard">
         <a appAccordionToggle routerLink="/dashboard">
-            <mat-icon>dashboard</mat-icon>Dashboard
+            <mat-icon>dashboard</mat-icon>Pano
         </a>
     </mat-list-item>
     <mat-divider>
@@ -15,12 +15,7 @@
     <mat-list-item appAccordionLink *ngIf="service.getLocalStorage('authToken')" routerLink="/settings"
         routerLinkActive="selected" group="settings">
         <a appAccordionToggle routerLink="/settings">
-            <mat-icon>content_paste</mat-icon> Settings
-        </a>
-    </mat-list-item>
-    <mat-list-item href="https://www.elsner.com/contact-us/" target="_blank" group="contact">
-        <a href="https://www.elsner.com/contact-us/" target="_blank">
-            <mat-icon>content_paste</mat-icon> Contact us
+            <mat-icon>content_paste</mat-icon> Ayarlar
         </a>
     </mat-list-item>
 </mat-nav-list>

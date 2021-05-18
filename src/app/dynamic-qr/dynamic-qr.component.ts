@@ -330,6 +330,7 @@ export class DynamicQRComponent implements OnInit {
               if (response.code !== 0) {
                 if (response.code === 200) {
                   this.progressLoading = false;
+                  this.router.navigate(['dashboard']);
                 } else {
                   config.flash(this.snackBar, response.message);
                 }

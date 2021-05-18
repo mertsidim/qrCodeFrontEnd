@@ -3,10 +3,10 @@
 
 <mat-card *ngIf="!loading" style="margin-bottom: 20px; min-height: 400px;">
     <mat-card-title>
-        <mat-icon>dashboard</mat-icon> Dashboard
+        <mat-icon>dashboard</mat-icon> Pano
         <span fxFlex></span>
         <button mat-raised-button color="primary" (click)="createDynamicQR()">
-            Create New Dynamic QR
+            Dinamik QR Kodu Oluştur
         </button>
     </mat-card-title>
     <mat-card-content>
@@ -14,7 +14,7 @@
             <div>
                 <div style="width: 100%">
                     <mat-form-field style="width:25%;">
-                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Arama">
                     </mat-form-field>
                 </div>
                 <span fxFlex></span>
@@ -29,21 +29,21 @@
             <div class="container mat-elevation-z8">
                 <table mat-table [dataSource]="matDataSource" matSort style="width: 100%">
                     <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef style="min-width: 50px;"> Name</th>
+                        <th mat-header-cell *matHeaderCellDef style="min-width: 50px;"> Adı</th>
                         <td mat-cell *matCellDef="let row" style="min-width: 50px;">
                             {{ row.qrName  ? row?.qrName.charAt(0).toUpperCase() + row?.qrName.slice(1) : '' }}</td>
                     </ng-container>
                     <ng-container matColumnDef="type">
-                        <th mat-header-cell *matHeaderCellDef> Type </th>
+                        <th mat-header-cell *matHeaderCellDef> QR Tipi </th>
                         <td mat-cell *matCellDef="let row">{{ row?.qrCodeType.toUpperCase()}}</td>
                     </ng-container>
                     <ng-container matColumnDef="created_At">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date/Time </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Oluşturma Zamanı </th>
                         <td mat-cell *matCellDef="let row">
                             {{ config.date(row?.created_At) | date:'medium'}}</td>
                     </ng-container>
                     <ng-container matColumnDef="actions">
-                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                        <th mat-header-cell *matHeaderCellDef>İşlemler</th>
                         <td mat-cell *matCellDef="let row">
                             <a type="button" mat-icon-button matTooltip="Click on link" matTooltipPosition="left"
                                 href="/redirectQR/qrURL/{{row._id}}?adminView=1" target="_blank">
@@ -72,7 +72,7 @@
                 showFirstLastButtons (page)="changePage($event)"></mat-paginator>
         </div>
         <div class="question-list heading" *ngIf="!matDataSource?.data.length">
-            <h3>No data available.</h3>
+            <h3>Henüz bir veri yok!</h3>
         </div>
     </mat-card-content>
 </mat-card>

@@ -59,8 +59,8 @@ export class LoginComponent implements OnInit {
   }
 
   getErrorPassword() {
-    return this.formGroup.get('password').hasError('required') ? 'This field is required' :
-      this.formGroup.get('password').hasError('requirements') ? 'Password needs to be at least eight characters, one uppercase letter and one number' : '';
+    return this.formGroup.get('password').hasError('required') ? 'Bu alan zorunludur' :
+      this.formGroup.get('password').hasError('requirements') ? 'Şifreniz en az 8 karakter olmalıdır, en az bir büyük harf ve bir rakam içermelidir' : '';
   }
 
   onSubmit() {
