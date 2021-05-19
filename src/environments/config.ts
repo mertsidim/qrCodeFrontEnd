@@ -7,8 +7,8 @@ export const companyName = 'Mert ŞIDIM';
 export const logo = 'assets/qrkodureteci-logo.png';
 export const favicon = 'assets/images/favicon.png';
 
-export const baseUrl = 'http://localhost:4200';
-export const apiBasePath = 'http://localhost:8787/';
+/* export const baseUrl = 'http://localhost:4200'; */
+/* export const apiBasePath = 'http://localhost/'; */
 
 
 
@@ -19,9 +19,9 @@ export const apiBasePath = 'http://localhost:8787/';
 
 // **** Live URL ****
 
-/* export const baseUrl = 'https://qrcodefrontend.azurewebsites.net/'; */
+export const baseUrl = 'https://qrcodefrontend.azurewebsites.net';
 
-/* export const apiBasePath = 'https://qrcodegenapi.azurewebsites.net/'; */
+export const apiBasePath = 'https://qrcodegenapi.azurewebsites.net/';
 
 export const imagePath = apiBasePath + 'settings/';
 export const pagination = [5, 10, 25, 100];
